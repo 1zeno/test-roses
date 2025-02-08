@@ -1,0 +1,27 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.container {
+    @include mixins.flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    border-bottom: solid 1px;
+    border-bottom-color: #333333;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    p {
+        font-size: variables.$font-size-md;
+    }
+    .right-content {
+        @include mixins.flex;
+        gap: 16px;
+        p {
+            color: variables.$text-secondary;
+        }
+    }
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
