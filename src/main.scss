@@ -1,4 +1,11 @@
+@use "./styles/variables";
+
 * {
     margin: 0;
     box-sizing: border-box;
+}
+body {
+    font-family: variables.$font-family-primary;
+    color: variables.$text-primary;
+    background-color: #000000;
 }
