@@ -1,0 +1,92 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+@mixin buttonStyle() {
+    border-radius: 24px;
+    cursor: pointer;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    width: 100%;
+}
+
+@mixin buttonText() {
+    font-family: variables.$font-family-secondary;
+    font-size: variables.$font-size-xs;
+    font-weight: 600;
+}
+
+@mixin buttonHover() {
+    opacity: 0.8;
+}
+
+.default {
+    @include buttonStyle;
+    background-color: #232323;
+    border: none;
+    &:hover {
+        @include buttonHover;
+    }
+    p {
+        @include buttonText;
+        color: variables.$text-primary;
+    }
+}
+
+.outlined {
+    @include buttonStyle;
+    position: relative;
+    background: transparent;
+    border: 2px solid transparent;
+    overflow: hidden;
+    z-index: 1;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        border: 2px solid transparent;
+        background: linear-gradient(90deg, variables.$color-primary, variables.$color-secondary) border-box;
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        border-radius: 24px;
+       
+    }
+    &:hover {
+        @include buttonHover;
+    }
+    p {
+        @include mixins.textGradient;
+        font-size: variables.$font-size-xs;
+    }
+}
+
+.filled {
+    @include buttonStyle;
+    border: none;
+    background: linear-gradient(90deg, variables.$color-primary, variables.$color-secondary) border-box;
+    &:hover {
+        @include buttonHover;
+    }
+    p {
+        @include buttonText;
+        color: variables.$text-primary;
+    }
+}
+
+.text {
+    @include buttonStyle;
+    background: transparent;
+    border: none;
+    &:hover {
+        @include buttonHover;
+    }
+    p {
+        @include buttonText;
+        color: variables.$text-secondary;
+    }
+}
+  
