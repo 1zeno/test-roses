@@ -1,0 +1,15 @@
+@use "./variables";
+
+@mixin textGradient(){
+    background-image: linear-gradient(90deg, variables.$color-primary, variables.$color-secondary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+}
+
+@mixin flex(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
