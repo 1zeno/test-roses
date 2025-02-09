@@ -48,8 +48,9 @@ const Profile = () => {
             {location.pathname !== "/profile/edit" && (
                 <nav className="navbar">
                     {
-                        links.map((link)=> (
+                        links.map((link, index)=> (
                             <NavLink
+                                key={`${link.title}-${index}`}
                                 to={link.path}
                                 end={link.end}
                                 className={({ isActive }) =>

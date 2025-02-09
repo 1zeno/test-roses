@@ -61,8 +61,8 @@ const Info = () => {
                 <Button variant="default" text="PROFILE PICTURE" />
             </section>
             {
-                redirectItems.map((item) => (
-                    <RedirectItem text={item.text} path={item.path}>
+                redirectItems.map((item, index) => (
+                    <RedirectItem key={index} text={item.text} path={item.path}>
                         {item.rightContent()}
                     </RedirectItem>
                 ))
