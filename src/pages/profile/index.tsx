@@ -45,21 +45,23 @@ const Profile = () => {
                     <p className="subtitle">Configuration</p>
                 </div>
             </section>
-            <nav className="navbar">
-                {
-                    links.map((link)=> (
-                        <NavLink
-                            to={link.path}
-                            end={link.end}
-                            className={({ isActive }) =>
-                                isActive ? "link active" : "link"
-                            }
-                        >
-                            <p>{link.title}</p>
-                        </NavLink>
-                    ))
-                }
-            </nav>
+            {location.pathname !== "/profile/edit" && (
+                <nav className="navbar">
+                    {
+                        links.map((link)=> (
+                            <NavLink
+                                to={link.path}
+                                end={link.end}
+                                className={({ isActive }) =>
+                                    isActive ? "link active" : "link"
+                                }
+                            >
+                                <p>{link.title}</p>
+                            </NavLink>
+                        ))
+                    }
+                </nav>
+            )}
             <Outlet />
         </div>
     )
