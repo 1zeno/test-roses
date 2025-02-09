@@ -1,0 +1,73 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+
+    .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding-bottom: 16px;
+        .logo {
+            width: 100%;
+            max-width: 120px;
+        }
+        .right-container {
+            @include mixins.flex;
+            gap: 24px;
+        }
+    }
+
+    .button-back {
+        @include mixins.flex;
+        border-radius: 50%;
+        background-color: #232323;
+        width: 48px;
+        height: 48px;
+    }
+
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 16px;
+    }
+
+    .title {
+        color: variables.$text-primary;
+        font-family: variables.$font-family-secondary;
+        font-size: variables.$font-size-md;
+        font-weight: 500;
+    }
+    
+    .subtitle {
+        color: variables.$text-secondary;
+        font-family: variables.$font-family-primary;
+        font-size: variables.$font-size-md;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .link {
+        @include mixins.flex;
+        text-decoration: none;
+        width: 100%;
+        padding: 16px 8px;
+        background-color: #111111;
+        p {
+            color: variables.$text-secondary;
+        }
+    }
+    .active {
+        background: none;
+        p {
+            @include mixins.textGradient;
+        }
+    }
+}
