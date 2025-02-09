@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 import Notification from "../../assets/notification.svg";
 import ArrowLeft from "../../assets/arrow-left.svg";
@@ -6,6 +6,7 @@ import Avatar from "../../components/Avatar";
 import "./index.scss";
 
 const Profile = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const links = [
         {
@@ -25,17 +26,19 @@ const Profile = () => {
         },
     ];
 
+    const onGoHome = () => navigate("/");
+
     return (
         <div className="profile-container">
             <section className="header">
-                <img src={Logo} className="logo" />
+                <img src={Logo} className="logo" onClick={onGoHome} />
                 <div className="right-container">
                     <img src={Notification} width={24} height={24} />
                     <Avatar width={32} height={32} />
                 </div>
             </section>
             <section className="content-header">
-                <div className="button-back">
+                <div className="button-back" onClick={onGoHome}>
                     <img src={ArrowLeft} width={24} height={24} />
                 </div>
                 <div>

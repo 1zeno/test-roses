@@ -1,4 +1,18 @@
-.title {
-    color: red;
-  }
-  
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+    gap: 30px;
+    height: 100vh;
+    .title {
+        font-family: variables.$font-family-secondary;
+        font-size: variables.$font-size-md;
+        @include mixins.textGradient;
+    }
+}
