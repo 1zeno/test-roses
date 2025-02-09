@@ -8,9 +8,9 @@ interface IProps{
   }
 const RedirectItem: React.FC<IProps> = ({children, text}) => {
     return (
-        <div className="container">
+        <div className="redirect-item-container">
             <p>{text}</p>
-            <div className="right-content">
+            <div className="redirect-item-right-content">
                 {children}
                 <img src={ArrowRight} alt="arrow-right"/>
             </div>
