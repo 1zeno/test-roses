@@ -34,7 +34,7 @@ const Photos = () => {
 
     return (
         <div className="photos-page">
-            <div className="first-row">
+            <section className="first-row">
                 <img className="left-photo" src={Photo1} />
                 <div className="cover-button">
                     <Button variant="default" text="Cover" style={{ borderRadius: 4 }} />
@@ -43,8 +43,8 @@ const Photos = () => {
                     <img className="photo" src={Photo2} />
                     <img className="photo" src={Photo2} />
                 </div>
-            </div>
-            <div className="photos-list">
+            </section>
+            <section className="photos-list">
                 {
                     images.map((value, index) => (
                         <div key={index} className="photo-item">
@@ -61,7 +61,7 @@ const Photos = () => {
                 <div className="add-photo-item" onClick={onGoToPreference}>
                     <img src={Camera} width={32} height={32} />
                 </div>
-            </div>
+            </section>
         </div>
     )
 }
