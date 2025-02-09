@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./index.scss";
 import Label from "../Label";
+import InfoIcon from "../../assets/info.svg";
 
 interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -9,7 +10,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const TextInput: React.FC<IProps> = ({label, imgSrc, ...rest}) => {
     return (
         <div className="text-input-container">
-            <Label>{label}</Label>
+            <Label icon={InfoIcon}>{label}</Label>
             {
                 imgSrc ? (
                     <div className="input-container">

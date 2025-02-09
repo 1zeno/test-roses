@@ -1,0 +1,31 @@
+@use "../../../styles/mixins";
+@use "../../../styles/variables";
+
+.profile-preference-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 24px;
+    width: 100%;
+
+    .identity-section {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        .content {
+            display: flex;
+            gap: 16px;
+            .content-text {
+                color: variables.$text-secondary;
+                padding-top: 8px;
+            }
+
+            .title-label {
+                h1 {
+                    font-size: variables.$font-size-md;
+                }
+            }
+        }
+    }
+}

@@ -4,6 +4,13 @@ $border-color: #ccc;
 $transition-speed: 0.3s;
 
 .select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.select-input {
     position: relative;
     width: 100%;
 
