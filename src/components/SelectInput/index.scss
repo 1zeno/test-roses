@@ -1,0 +1,43 @@
+@use "../../styles/variables";
+
+$border-color: #ccc;
+$transition-speed: 0.3s;
+
+.select-container {
+    position: relative;
+    width: 100%;
+
+    img {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+}
+
+.select-rounded {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border-radius: 24px;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    background-color: #111111;
+    color: variables.$text-primary;
+    background-image: url("../../assets/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+    transition: border-color $transition-speed ease, box-shadow $transition-speed ease;
+
+    &:focus {
+        border-color: $border-color;
+        box-shadow: 0 0 5px rgba($border-color, 0.5);
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
