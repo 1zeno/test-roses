@@ -1,3 +1,4 @@
+import React from "react";
 import SelectInput from "../../../components/SelectInput";
 import AirplaneIcon from "../../../assets/airplane.svg";
 import LanguageIcon from "../../../assets/language.svg";
@@ -6,8 +7,13 @@ import "./index.scss";
 import RedirectItem from "../../../components/RedirectItem";
 import Button from "../../../components/Button";
 import Switch from "../../../components/Switch";
+import { useNavigate } from 'react-router-dom';
 
 const Preference = () => {
+    const [images, setImages] = React.useState([]);
+    const fileInputRef = React.useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
+
     const redirectItems = [
         {
             path: "/profile/photos",
@@ -25,6 +31,38 @@ const Preference = () => {
             rightContent: () => (<p>100</p>)
         },
     ];
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        const acceptedTypes = ["image/png"];
+
+        if (file && acceptedTypes.includes(file.type)) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                const base64Image = e.target?.result as string;
+                localStorage.setItem('profileImages', JSON.stringify([...images, { url :base64Image }]));
+            };
+
+            reader.readAsDataURL(file);
+            navigate("/profile/photos");
+        } else {
+            alert("Selecione um arquivo PNG válido.");
+        }
+    };
+
+    const handleButtonClick = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.click();
+        }
+    };
+
+    React.useEffect(() => {
+        const savedImages = localStorage.getItem('profileImages');
+        if (savedImages) {
+            setImages(JSON.parse(savedImages));
+        }
+    }, []);
 
     return (
         <div className="profile-preference-container">
@@ -46,7 +84,14 @@ const Preference = () => {
                     </RedirectItem>
                 ))
             }
-            <Button variant="default" text="ADD CONTENT" />
+            <input
+                type="file"
+                accept=".png"
+                onChange={handleFileChange}
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+            />
+            <Button variant="default" text="ADD CONTENT" onClick={handleButtonClick} />
             <section className="identity-section">
                 <div className="content">
                     <img src={Logo} width={36} height={36} />

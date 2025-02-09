@@ -1,13 +1,13 @@
-import "./index.scss";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Photo1 from "../../../assets/mock/red-rose.jpg";
 import Photo2 from "../../../assets/mock/white-rose.jpg";
 import Camera from "../../../assets/camera.svg";
 import Button from "../../../components/Button";
-import { useNavigate } from "react-router-dom";
+import "./index.scss";
 
 const Photos = () => {
-    const navigate = useNavigate();
-    const photos = [
+    const [images, setImages] = React.useState([
         {
             url: Photo2,
         },
@@ -17,10 +17,21 @@ const Photos = () => {
         {
             url: Photo2,
         },
-    ];
+    ]);
+    const navigate = useNavigate();
+
     const onGoToPreference = () => {
         navigate("/profile/preference");
     }
+
+    React.useEffect(() => {
+        const savedImages = localStorage.getItem('profileImages');
+        if (savedImages) {
+            setImages([...images, ...JSON.parse(savedImages) as []]);
+            
+        }
+    }, []);
+
     return (
         <div className="photos-page">
             <div className="first-row">
@@ -35,7 +46,7 @@ const Photos = () => {
             </div>
             <div className="photos-list">
                 {
-                    photos.map((value, index) => (
+                    images.map((value, index) => (
                         <div key={index} className="photo-item">
                             <img className="photo" src={value.url} />
                         </div>
