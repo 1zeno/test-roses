@@ -1,0 +1,51 @@
+@use "../../../styles/mixins";
+
+.photos-page {
+    padding-top: 24px;
+    .photo {
+        width: 100%;
+        border-radius: 8px;
+    }
+    .first-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 66% 33%;
+        gap: 8px;
+        .left-photo {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .right-content {
+            display: grid;
+            grid-template-rows: 50% 50%;
+            row-gap: 4px;
+        }
+        .cover-button {
+            position: absolute;
+            width: 80px;
+            left: 10px;
+            bottom: 10px;
+        }
+    }
+
+    .photos-list {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        padding-top: 8px;
+        gap: 4px;
+
+        .add-photo-item {
+            @include mixins.flex;
+            border: dashed #333333 1px;
+            border-radius: 8px;
+            background-color: #111111;
+            height: 189px;
+            cursor: pointer;
+            @media (min-width: 768px) {
+                height: 380px;
+            }
+        }
+
+    }
+}
+
