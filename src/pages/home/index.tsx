@@ -15,7 +15,7 @@ const Home = () => {
             <div>
                 <img src={Logo} className="logo" />
             </div>
-            <h1 className="title">{"Bem vindo(a) ao Rose!"}</h1>
+            <h1 className="title">{"Bem vindo(a) ao Roses!"}</h1>
             <Button variant="filled" text="VISUALIZAR PERFIL"  onClick={onGoToProfile}/>
         </div>
     )
