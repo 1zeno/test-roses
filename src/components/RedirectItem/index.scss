@@ -5,13 +5,14 @@
     @include mixins.flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 400px;
     border-bottom: solid 1px;
     border-bottom-color: #333333;
     padding-top: 12px;
     padding-bottom: 12px;
+    text-decoration: none;
     p {
         font-size: variables.$font-size-md;
+        color: variables.$text-primary;
     }
     .redirect-item-right-content {
         @include mixins.flex;

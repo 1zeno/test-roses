@@ -1,20 +1,22 @@
 import * as React from "react";
 import ArrowRight from "../../assets/arrow-right.svg";
 import "./index.scss";
+import { NavLink } from "react-router-dom";
 
-interface IProps{
+interface IProps {
     children: React.ReactNode;
     text: string;
-  }
-const RedirectItem: React.FC<IProps> = ({children, text}) => {
+    path: string;
+}
+const RedirectItem: React.FC<IProps> = ({ children, text, path }) => {
     return (
-        <div className="redirect-item-container">
+        <NavLink to={path} className="redirect-item-container">
             <p>{text}</p>
             <div className="redirect-item-right-content">
                 {children}
-                <img src={ArrowRight} alt="arrow-right"/>
+                <img src={ArrowRight} alt="arrow-right" />
             </div>
-        </div>
+        </NavLink>
     )
 }
 

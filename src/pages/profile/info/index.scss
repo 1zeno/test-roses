@@ -1,0 +1,11 @@
+.info-page-container {
+    padding-top: 24px;
+    .profile-picture {
+        display: flex;
+        gap: 8px;
+        padding-bottom: 24px;
+    }
+    .disabled {
+        opacity: 0.5;
+    }
+}
