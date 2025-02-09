@@ -1,0 +1,46 @@
+@use "../../styles/variables";
+
+$border-color: #ccc;
+
+.rounded-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 1px solid #333333;
+    border-radius: 24px;
+    font-size: 16px;
+    outline: none;
+    background-color: #111111;
+    color: variables.$text-primary;
+
+    &:hover {
+        border-color: darken($border-color, 10%);
+    }
+
+    &:focus {
+        border-color: $border-color;
+        box-shadow: 0 0 5px rgba($border-color, 0.5); // Sombra suave ao focar
+    }
+
+    &:disabled {
+        background-color: #f0f0f0;
+        cursor: not-allowed;
+    }
+}
+.rounded-input-with-icon {
+    padding: 12px 40px 12px 16px;
+}
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+.input-container {
+    img {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+    }
+}
