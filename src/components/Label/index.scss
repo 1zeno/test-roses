@@ -1,0 +1,12 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.label {
+    @include mixins.flex;
+    
+    gap: 4px;
+    p {
+        font-family: variables.$font-family-primary;
+        font-size: variables.$font-size-sm;
+    }
+}
