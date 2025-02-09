@@ -5,7 +5,7 @@ Teste para frontend utilizando React.js, TypeScript, HTML e SASS utilizando o pa
 
 ## Instalação
 
-Instale test-rose com npm
+Instale test-roses com npm
 
 ```bash
   npm install
